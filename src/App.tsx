@@ -2,7 +2,7 @@ import { useState } from "react";
 import Alert from "./components/Alert";
 import ListGroup from "./components/ListGroup";
 import Button from "./components/Button";
-import LikeButton from "./components/LikeButton";
+import Like from "./components/Like";
 
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
@@ -13,7 +13,7 @@ function App() {
       {alertVisible && (
         <Alert onClose={() => setAlertVisibility(false)}>Alert</Alert>
       )}
-      <LikeButton />
+      <Like onClick={() => console.log("clicked")} />
       {items.length === 0 && <p>No item found</p>}
       <ListGroup
         heading="Cities"
