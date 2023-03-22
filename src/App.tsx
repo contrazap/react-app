@@ -16,7 +16,7 @@ function App() {
       <ListGroup
         heading="Cities"
         items={items}
-        onSelectItem={() => console.log("Clicked")}
+        // onSelectItem={() => console.log("Clicked")}
       ></ListGroup>
       <Button color="success" onClick={() => setAlertVisibility(true)}>
         Submit

@@ -1,10 +1,5 @@
 import { ReactNode } from "react";
-import styled from "styled-components";
-
-const Btn = styled.button`
-  color: white;
-  background: blue;
-`;
+import styles from "./Button.module.css";
 
 interface Props {
   children: ReactNode;
@@ -13,7 +8,14 @@ interface Props {
 }
 
 const Button = ({ children, color = "primary", onClick }: Props) => {
-  return <Btn onClick={onClick}>{children}</Btn>;
+  return (
+    <button
+      className={[styles["btn"], styles["btn-primary"]].join(" ")}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Button;

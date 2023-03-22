@@ -19,7 +19,7 @@ const ListItem = styled.li<ListItemProps>`
 interface Props {
   items: string[];
   heading: string;
-  onSelectItem: (item: string) => void;
+  onSelectItem?: (item: string) => void;
 }
 
 function ListGroup({ items, heading, onSelectItem }: Props) {
@@ -36,7 +36,9 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
             key={item}
             onClick={() => {
               setSelectedIndex(index);
-              onSelectItem(item);
+              {
+                onSelectItem && onSelectItem(item);
+              }
             }}
           >
             {item}
