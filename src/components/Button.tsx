@@ -1,4 +1,10 @@
 import { ReactNode } from "react";
+import styled from "styled-components";
+
+const Btn = styled.button`
+  color: white;
+  background: blue;
+`;
 
 interface Props {
   children: ReactNode;
@@ -7,11 +13,7 @@ interface Props {
 }
 
 const Button = ({ children, color = "primary", onClick }: Props) => {
-  return (
-    <button className={"btn btn-" + color} onClick={onClick}>
-      {children}
-    </button>
-  );
+  return <Btn onClick={onClick}>{children}</Btn>;
 };
 
 export default Button;
