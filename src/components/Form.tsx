@@ -1,12 +1,17 @@
 import { useForm } from "react-hook-form";
 import { FieldValues } from "react-hook-form/dist/types";
 
+interface FormData {
+  name: string;
+  age: number;
+}
+
 const Form = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<FormData>();
 
   const onSubmit = (data: FieldValues) => console.log(data);
 
