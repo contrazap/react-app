@@ -1,35 +1,22 @@
 import { useState } from "react";
+import ExpandableText from "./components/ExpandableText";
 
-function App() {
-  const [cart, setCart] = useState({
-    discount: 0.1,
-    items: [
-      { id: 1, title: "Product 1", quantity: 1 },
-      { id: 2, title: "Product 2", quantity: 1 },
-    ],
-  });
+const App = () => {
+  const para =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae magna tristique, euismod orci eget, malesuada mauris. Pellentesque lobortis arcu in mauris varius suscipit. Aliquam ut diam semper, bibendum turpis eget, convallis nulla. Donec lobortis ultricies dolor, ac tempor magna convallis vel.";
+
+  const [expanded, setExpanded] = useState(false);
 
   const handleClick = () => {
-    setCart({
-      ...cart,
-      items: cart.items.map((item) =>
-        item.id === 1 ? { ...item, quantity: 2 } : { ...item }
-      ),
-    });
+    setExpanded(!expanded);
   };
 
   return (
     <div>
-      <li>{cart.discount}</li>
-      {cart.items.map((item) => (
-        <>
-          <li>title: {item.title}</li>
-          <li>quantity: {item.quantity}</li>
-        </>
-      ))}
-      <button onClick={handleClick}>Update</button>
+      <h1>Expandable Text Example</h1>
+      <ExpandableText para={para} expanded={expanded} onClick={handleClick} />
     </div>
   );
-}
+};
 
 export default App;
