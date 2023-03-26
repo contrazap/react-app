@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 import ExpenseForm from "./expense-tracker/components/ExpenseForm";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
@@ -16,6 +16,10 @@ function App() {
   const visibleExpenses = selectedCategory
     ? expenses.filter((e) => e.category === selectedCategory)
     : expenses;
+
+  useEffect(() => {
+    document.title = "My App";
+  });
 
   return (
     <div>

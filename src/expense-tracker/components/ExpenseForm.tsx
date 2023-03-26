@@ -2,6 +2,7 @@ import { categories } from "../categories";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useRef } from "react";
 
 const schema = z.object({
   description: z
@@ -33,6 +34,12 @@ const ExpenseForm = ({ onSubmit }: Props) => {
     resolver: zodResolver(schema),
   });
 
+  const ref = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (ref.current) ref.current.focus();
+  });
+
   return (
     <form
       onSubmit={handleSubmit((data) => {
@@ -46,6 +53,7 @@ const ExpenseForm = ({ onSubmit }: Props) => {
         </label>
         <input
           {...register("description")}
+          ref={ref}
           id="description"
           type="text"
           className="form-control"
